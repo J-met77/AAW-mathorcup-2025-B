@@ -376,7 +376,16 @@ def main():
         print("[error] git add 失败"); sys.exit(1)
     st = git("status", "--porcelain")
     if not st.stdout.strip():
-        print(f"[skip] {ts} 无变更，跳过提交")
+        # 无新变更：但若上次 push 失败留下未推送提交，仍需补推
+        cnt = git("rev-list", "--count", "origin/main..main")
+        if cnt.returncode != 0 or cnt.stdout.strip() in ("", "0"):
+            print(f"[skip] {ts} 无变更，跳过提交")
+            return
+        print(f"[info] {ts} 无新变更，补推上次未推送的 {cnt.stdout.strip()} 个提交…")
+        p = git("push", "origin", "main", timeout=180)
+        if p.returncode != 0:
+            print(f"[error] git push 失败:\n{p.stderr}"); sys.exit(1)
+        print(f"[ok] {ts} 已补推 {cnt.stdout.strip()} 个未推送提交")
         return
     done, doing, pending, pct = progress_stats(rows)
     msg = (f"sync: {ts} 进度{pct}% — 完成{done} 进行中{doing} 待办{pending} · {current_stage(rows)}")
