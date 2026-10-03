@@ -1,0 +1,171 @@
+== A3 数据清洗与 EDA ==
+附件1 真实样本: 11167（已剥离 1 条英文字段名行）
+附件2 真实样本: 2792（已剥离 1 条英文字段名行）
+
+缺失/异常标记（前 10）:
+                      字段  NaN数  NaN占比   负1数   负值数
+         abnormal_reason  5432 0.4864     0     0
+                  source    94 0.0084     0     0
+                is_staff     0 0.0000 10332 10332
+           insure_amount     0 0.0000    42   862
+            overtime_raw     0 0.0000     0  1857
+          case_delay_raw     0 0.0000     0  2840
+             goods_level     0 0.0000  4908  4908
+  start_node_waybill_num     0 0.0000     3     3
+start_node_accident_rate     0 0.0000     0   992
+  end_node_accident_rate     0 0.0000     0  1239
+
+时间字段量纲诊断:
+            字段  负值数  ≥1e7(疑似毫秒)数  ≥1e7占比  众数区间频数
+  overtime_raw 1857            0  0.0000  7314.0
+case_delay_raw 2840         1067  0.0955     NaN
+
+目标与派生量分位数:
+    变量    min     P25    P50      P75      P85      P90      P95      P97      P99      max      均值
+实际赔付金额   0.74  88.830 200.15  408.780  563.591  676.290  863.067  998.291 1238.016 3171.470 292.241
+  索赔金额 100.00 240.380 546.26 1061.260 1472.203 1871.540 2463.298 2956.525 3832.289 5498.770 806.904
+ 超额索赔额   0.08 107.545 282.94  687.210  983.421 1265.322 1827.121 2240.500 2970.640 4463.580 514.663
+ 相对超额率   0.00   0.738   1.67    3.392    5.003    6.719   10.737   14.109   29.130  134.189   3.238
+
+索赔>实赔 的样本占比: 1.0000
+实赔最小值: 0.74（不存在 0/负值）
+
+PSI（<0.1 稳定, 0.1~0.25 需关注, >0.25 漂移）:
+                      字段    PSI
+  end_node_accident_rate 0.0109
+            claim_amount 0.0078
+          case_delay_raw 0.0057
+           insure_amount 0.0041
+    end_node_waybill_num 0.0038
+  start_node_waybill_num 0.0033
+            overtime_raw 0.0031
+start_node_accident_rate 0.0016
+
+与实赔的 Spearman 相关:
+claim_amount                0.8069
+over_claim                  0.5142
+insure_amount               0.3380
+end_node_accident_rate      0.2225
+start_node_accident_rate    0.1554
+end_node_claim_ratio        0.0565
+start_node_claim_ratio     -0.0015
+
+清洗后训练集: (11167, 34)，测试集: (2792, 33)
+特征数: 31（数值 19 + 类别 12）
+剩余 NaN（训练/测试）: 2231 / 605
+
+== A3 完成 ==
+== A3 数据清洗与 EDA ==
+附件1 真实样本: 11167（已剥离 1 条英文字段名行）
+附件2 真实样本: 2792（已剥离 1 条英文字段名行）
+
+缺失/异常标记（前 10）:
+                      字段  NaN数  NaN占比   负1数   负值数
+         abnormal_reason  5432 0.4864     0     0
+                  source    94 0.0084     0     0
+                is_staff     0 0.0000 10332 10332
+           insure_amount     0 0.0000    42   862
+            overtime_raw     0 0.0000     0  1857
+          case_delay_raw     0 0.0000     0  2840
+             goods_level     0 0.0000  4908  4908
+  start_node_waybill_num     0 0.0000     3     3
+start_node_accident_rate     0 0.0000     0   992
+  end_node_accident_rate     0 0.0000     0  1239
+
+时间字段量纲诊断:
+            字段  负值数  ≥1e7(疑似毫秒)数  ≥1e7占比  众数区间频数
+  overtime_raw 1857            0  0.0000  7314.0
+case_delay_raw 2840         1067  0.0955     NaN
+
+目标与派生量分位数:
+    变量    min     P25    P50      P75      P85      P90      P95      P97      P99      max      均值
+实际赔付金额   0.74  88.830 200.15  408.780  563.591  676.290  863.067  998.291 1238.016 3171.470 292.241
+  索赔金额 100.00 240.380 546.26 1061.260 1472.203 1871.540 2463.298 2956.525 3832.289 5498.770 806.904
+ 超额索赔额   0.08 107.545 282.94  687.210  983.421 1265.322 1827.121 2240.500 2970.640 4463.580 514.663
+ 相对超额率   0.00   0.738   1.67    3.392    5.003    6.719   10.737   14.109   29.130  134.189   3.238
+
+索赔>实赔 的样本占比: 1.0000
+实赔最小值: 0.74（不存在 0/负值）
+
+PSI（<0.1 稳定, 0.1~0.25 需关注, >0.25 漂移）:
+                      字段    PSI
+  end_node_accident_rate 0.0109
+            claim_amount 0.0078
+          case_delay_raw 0.0057
+           insure_amount 0.0041
+    end_node_waybill_num 0.0038
+  start_node_waybill_num 0.0033
+            overtime_raw 0.0031
+start_node_accident_rate 0.0016
+
+与实赔的 Spearman 相关:
+claim_amount                0.8069
+over_claim                  0.5142
+insure_amount               0.3380
+end_node_accident_rate      0.2225
+start_node_accident_rate    0.1554
+end_node_claim_ratio        0.0565
+start_node_claim_ratio     -0.0015
+
+清洗后训练集: (11167, 34)，测试集: (2792, 33)
+特征数: 31（数值 19 + 类别 12）
+剩余 NaN（训练/测试）: 2231 / 605
+
+== A3 完成 ==
+== A3 数据清洗与 EDA ==
+附件1 真实样本: 11167（已剥离 1 条英文字段名行）
+附件2 真实样本: 2792（已剥离 1 条英文字段名行）
+
+缺失/异常标记（前 10）:
+                      字段  NaN数  NaN占比   负1数   负值数
+         abnormal_reason  5432 0.4864     0     0
+                  source    94 0.0084     0     0
+                is_staff     0 0.0000 10332 10332
+           insure_amount     0 0.0000    42   862
+            overtime_raw     0 0.0000     0  1857
+          case_delay_raw     0 0.0000     0  2840
+             goods_level     0 0.0000  4908  4908
+  start_node_waybill_num     0 0.0000     3     3
+start_node_accident_rate     0 0.0000     0   992
+  end_node_accident_rate     0 0.0000     0  1239
+
+时间字段量纲诊断:
+            字段  负值数  ≥1e7(疑似毫秒)数  ≥1e7占比  众数区间频数
+  overtime_raw 1857            0  0.0000  7314.0
+case_delay_raw 2840         1067  0.0955     NaN
+
+目标与派生量分位数:
+    变量    min     P25    P50      P75      P85      P90      P95      P97      P99      max      均值
+实际赔付金额   0.74  88.830 200.15  408.780  563.591  676.290  863.067  998.291 1238.016 3171.470 292.241
+  索赔金额 100.00 240.380 546.26 1061.260 1472.203 1871.540 2463.298 2956.525 3832.289 5498.770 806.904
+ 超额索赔额   0.08 107.545 282.94  687.210  983.421 1265.322 1827.121 2240.500 2970.640 4463.580 514.663
+ 相对超额率   0.00   0.738   1.67    3.392    5.003    6.719   10.737   14.109   29.130  134.189   3.238
+
+索赔>实赔 的样本占比: 1.0000
+实赔最小值: 0.74（不存在 0/负值）
+
+PSI（<0.1 稳定, 0.1~0.25 需关注, >0.25 漂移）:
+                      字段    PSI
+  end_node_accident_rate 0.0109
+            claim_amount 0.0078
+          case_delay_raw 0.0057
+           insure_amount 0.0041
+    end_node_waybill_num 0.0038
+  start_node_waybill_num 0.0033
+            overtime_raw 0.0031
+start_node_accident_rate 0.0016
+
+与实赔的 Spearman 相关:
+claim_amount                0.8069
+over_claim                  0.5142
+insure_amount               0.3380
+end_node_accident_rate      0.2225
+start_node_accident_rate    0.1554
+end_node_claim_ratio        0.0565
+start_node_claim_ratio     -0.0015
+
+清洗后训练集: (11167, 34)，测试集: (2792, 33)
+特征数: 31（数值 19 + 类别 12）
+剩余 NaN（训练/测试）: 2231 / 605
+
+== A3 完成 ==

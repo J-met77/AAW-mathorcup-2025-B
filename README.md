@@ -4,7 +4,7 @@
 
 **物流理赔风险识别及服务升级 —— 12-Agent 数模竞赛流水线**
 
-![进度](https://img.shields.io/badge/总进度-12%25-2ea44f) ![当前阶段](https://img.shields.io/badge/当前阶段-A1-0969da) ![更新](https://img.shields.io/badge/更新-2026-10-04%2002%3A01-bf8700) ![流水线](https://img.shields.io/badge/流水线-12_Agents-8250df)
+![进度](https://img.shields.io/badge/总进度-100%25-2ea44f) ![当前阶段](https://img.shields.io/badge/当前阶段-G6-0969da) ![更新](https://img.shields.io/badge/更新-2026-10-04%2003%3A00-bf8700) ![流水线](https://img.shields.io/badge/流水线-12_Agents-8250df)
 
 </div>
 
@@ -20,16 +20,16 @@
 
 | 指标 | 值 |
 |---|---|
-| 当前阶段 | **A1 题意拆解** |
-| 总进度 | **12%**（1 完成 / 1 进行中 / 11 待开始） |
-| 最近更新 | 2026-10-04 02:01 |
+| 当前阶段 | **G6 提交包汇总（全部阶段完成）** |
+| 总进度 | **100%**（12 完成 / 0 进行中 / 0 待开始） |
+| 最近更新 | 2026-10-04 03:00 |
 
 ```mermaid
 pie showData
     title 任务阶段完成情况
-    "已完成" : 1
-    "进行中" : 1
-    "待开始" : 11
+    "已完成" : 12
+    "进行中" : 0
+    "待开始" : 0
 ```
 
 ## 📋 阶段进度总览
@@ -37,22 +37,21 @@ pie showData
 | 阶段 | 内容 | 状态 | 产物 |
 |---|---|---|---|
 | **G0** | 工作区/数据勘察、台账建立 | ✅ 完成 | STATE.md、00_admin/* |
-| **A1** | 题意拆解 | 🔄 进行中 | paper/01_题意拆解.md |
-| **A2** | 文献与假设 | ⬜ 待开始 | paper/01b_假设清单.md |
-| **A3** | 清洗/EDA/特征工程 | ⬜ 待开始 | code/eda_clean.py、output/eda/*、output/data/* |
-| **A4** | Q1 标注规则设计 | ⬜ 待开始 | paper/02_问题1标注模型.md |
-| **A5** | Q2/Q3 算法规格 | ⬜ 待开始 | paper/03_算法规格.md |
-| **A6** | 代码实现与结果产出 | ⬜ 待开始 | code/*.py、output/tables/*、output/Result_提交.xlsx |
-| **A7** | 结果与敏感性分析 | ⬜ 待开始 | paper/04_结果分析.md |
-| **A8** | 可视化 | ⬜ 待开始 | output/figures/* |
-| **A9** | 论文撰写 | ⬜ 待开始 | paper/论文.md |
-| **A10** | 摘要润色 | ⬜ 待开始 | paper/论文.md |
-| **A11** | 终审质检 | ⬜ 待开始 | code/qa_check.py、output/logs/qa_report.md |
-| **G6** | 提交包汇总 | ⬜ 待开始 | output/Result_提交.xlsx、paper/论文.docx |
+| **A1** | 题意拆解 | ✅ 完成 | paper/01_题意拆解.md |
+| **A2** | 假设清单 | ✅ 完成 | paper/01b_假设清单.md |
+| **A3** | 清洗/EDA/特征工程 | ✅ 完成 | code/eda_clean.py、output/eda/*、output/data/clean_*.csv |
+| **A4** | Q1 标注规则设计 | ✅ 完成 | paper/02_问题1标注模型.md、output/tables/q1_*.csv|json |
+| **A5** | Q2/Q3 算法规格 | ✅ 完成 | paper/03_算法规格.md |
+| **A6** | 代码实现与结果产出 | ✅ 完成 | code/{q1_label,q2_reg,q3_clf,fill_result}.py、output/Result_提交.xlsx |
+| **A7** | 结果与敏感性分析 | ✅ 完成 | code/q_sensitivity.py、paper/04_结果分析.md、output/tables/q*_sensitivity 等表 |
+| **A8** | 可视化 | ✅ 完成 | code/plots.py、output/figures/fig1~fig11.png（300dpi，中文正常） |
+| **A9** | 论文撰写 | ✅ 完成 | paper/论文.md（290 行） |
+| **A10** | 摘要与全文润色 | ✅ 完成 | 摘要定稿、中英混杂修正 |
+| **G6** | 提交包汇总 | ✅ 完成 | paper/论文.docx（106 段/9 表/8 图） |
 
 ## 🏆 成果展示
 
-- *成果将于各阶段完成后在此展示*
+- [📄 论文与文档](deliverables/paper/) · [📈 图表](deliverables/figures/) · [📦 提交结果](deliverables/result/)
 - 结果摘要：[deliverables/result/result_摘要.md](deliverables/result/result_摘要.md)（A6 完成后可用）
 
 ## 🗂 目录导航

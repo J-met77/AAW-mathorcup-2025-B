@@ -1,0 +1,44 @@
+训练 LGBM-M1 (log1p(y)) ...
+  M1 log1p(y): best_iters=[236, 202, 453, 399, 243]
+训练 LGBM-M2 (log(c/y)) ...
+  M2 log(c/y): best_iters=[116, 100, 372, 330, 90]
+训练 XGBoost (log1p) ...
+
+              模型   折  SMAPE    MAE   RMSE  WMAPE
+       LGBM双目标集成   1 0.4292 100.11 151.44 0.3302
+       LGBM双目标集成   2 0.4264  96.37 143.33 0.3314
+       LGBM双目标集成   3 0.4463  96.49 139.40 0.3346
+       LGBM双目标集成   4 0.4351  95.64 142.42 0.3310
+       LGBM双目标集成   5 0.4247  91.60 134.39 0.3160
+       LGBM双目标集成 OOF 0.4324  96.04 142.31 0.3286
+   LGBM log1p(y) OOF 0.4341  97.25 146.90 0.3328
+   LGBM log(c/y) OOF 0.4353  96.47 140.74 0.3301
+XGBoost log1p(y) OOF 0.4692 105.67 160.69 0.3616
+    基线0(索赔分层中位数) OOF 0.4942 121.75 184.60 0.4166
+
+模型对比(OOF):
+              模型  SMAPE    MAE   RMSE  WMAPE
+       LGBM双目标集成 0.4324  96.04 142.31 0.3286
+   LGBM log1p(y) 0.4341  97.25 146.90 0.3328
+   LGBM log(c/y) 0.4353  96.47 140.74 0.3301
+XGBoost log1p(y) 0.4692 105.67 160.69 0.3616
+    基线0(索赔分层中位数) 0.4942 121.75 184.60 0.4166
+
+特征重要性 Top12:
+                      特征  importance
+            claim_amount      1371.7
+             end_city_id      1314.3
+           start_city_id      1274.4
+  end_node_accident_rate      1247.4
+start_node_accident_rate      1212.4
+          goods_category      1176.1
+           insure_amount       911.5
+          overtime_log_h       886.3
+        case_delay_log_h       881.0
+  start_node_claim_ratio       846.9
+end_node_waybill_num_log       834.5
+    end_node_claim_ratio       828.4
+
+附件2 预测: n=2792, min=18.02, 中位=200.60, max=1445.90
+耗时 15.1s
+== Q2 完成 ==
