@@ -4,7 +4,7 @@
 
 **物流理赔风险识别及服务升级 —— 12-Agent 数模竞赛流水线**
 
-![进度](https://img.shields.io/badge/总进度-100%25-2ea44f) ![当前阶段](https://img.shields.io/badge/当前阶段-G6-0969da) ![更新](https://img.shields.io/badge/更新-2026-10-04%2005%3A00-bf8700) ![流水线](https://img.shields.io/badge/流水线-12_Agents-8250df)
+![进度](https://img.shields.io/badge/总进度-100%25-2ea44f) ![当前阶段](https://img.shields.io/badge/当前阶段-G6-0969da) ![更新](https://img.shields.io/badge/更新-2026-10-04%2006%3A00-bf8700) ![流水线](https://img.shields.io/badge/流水线-12_Agents-8250df)
 
 </div>
 
@@ -22,7 +22,7 @@
 |---|---|
 | 当前阶段 | **G6 提交包汇总（全部阶段完成）** |
 | 总进度 | **100%**（12 完成 / 0 进行中 / 0 待开始） |
-| 最近更新 | 2026-10-04 05:00 |
+| 最近更新 | 2026-10-04 06:00 |
 
 ```mermaid
 pie showData
